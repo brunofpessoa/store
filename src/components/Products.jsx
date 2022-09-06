@@ -1,9 +1,13 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { storeContext } from '../context/StoreProvider';
+import ProductCard from './ProductCard';
 
 function Products() {
+  const { products } = useContext(storeContext);
+
   return (
     <div>
-      Products
+      {products.map((product) => <ProductCard key={product.id} product={product} />)}
     </div>
   );
 }

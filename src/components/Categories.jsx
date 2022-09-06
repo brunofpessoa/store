@@ -6,16 +6,16 @@ function Categories() {
 
   return (
     <form>
-      {categories.map((el) => (
-        <label htmlFor={el.id} key={el.id}>
+      {categories.map((category) => (
+        <label htmlFor={category.id} key={category.id}>
           <input
             name="category"
             type="radio"
-            id={el.id}
-            value={el.id}
+            id={category.id}
+            value={category.id}
             onChange={({ target }) => setCategoryId(target.value)}
           />
-          {el.name}
+          {category.name}
         </label>
       ))}
     </form>
