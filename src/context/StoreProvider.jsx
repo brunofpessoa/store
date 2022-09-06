@@ -7,10 +7,11 @@ import React, {
 import propTypes from 'prop-types';
 import requestCategories from '../services/categoriesApi';
 
-const storeContext = createContext();
+export const storeContext = createContext();
 
 function StoreProvider({ children }) {
   const [categories, setCategories] = useState([]);
+  const [selectedCategory, setSelectedCategory] = useState('');
 
   async function getCategories() {
     const data = await requestCategories();
@@ -21,8 +22,14 @@ function StoreProvider({ children }) {
     getCategories();
   }, []);
 
+  function setCategoryId(id) {
+    setSelectedCategory(id);
+  }
+
   const value = useMemo(() => ({
     categories,
+    selectedCategory,
+    setCategoryId,
   }));
 
   return (
