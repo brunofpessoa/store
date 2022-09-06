@@ -1,4 +1,4 @@
-async function getCategories() {
+async function requestCategories() {
   try {
     const END_POINT = 'https://api.mercadolibre.com/sites/MLB/categories';
     const response = await fetch(END_POINT);
@@ -10,4 +10,4 @@ async function getCategories() {
   }
 }
 
-export default getCategories;
+export default requestCategories;

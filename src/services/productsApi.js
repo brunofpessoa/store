@@ -1,4 +1,4 @@
-async function getProducts(categoryId = '', query = '') {
+async function requestProducts(categoryId = '', query = '') {
   try {
     const END_POINT = `https://api.mercadolibre.com/sites/MLB/search?category=${categoryId}&q=${query}`;
     const response = await fetch(END_POINT);
@@ -10,4 +10,4 @@ async function getProducts(categoryId = '', query = '') {
   }
 }
 
-export default getProducts;
+export default requestProducts;
