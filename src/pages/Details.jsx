@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
+import Carousel from 'react-elastic-carousel';
 import { cartContext } from '../context/CartProvider';
 import { productContext } from '../context/ProductProvider';
 
@@ -9,10 +10,11 @@ function Detail() {
     productDetail: {
       id,
       price,
-      thumbnail,
+      // thumbnail,
       title,
       shipping,
       attributes,
+      pictures,
     },
   } = useContext(productContext);
   const { addProductToCart, removeProductFromCart, cart } = useContext(cartContext);
@@ -36,7 +38,10 @@ function Detail() {
     return (
       <div>
         <div>
-          <img src={thumbnail.replace('I.jpg', 'J.jpg')} alt={title} />
+          <Carousel>
+            {pictures.map((pic, index) => (
+              <img key={pic.id} src={pic.secure_url} alt={`imagem ${index}`} />))}
+          </Carousel>
           <div>
             <p>{title}</p>
             <p>{`R$ ${formattedPrice}`}</p>
