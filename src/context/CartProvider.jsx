@@ -1,9 +1,11 @@
 import React, {
   createContext,
+  useEffect,
   useMemo,
   useState,
 } from 'react';
 import propTypes from 'prop-types';
+import { saveToLocalStorage, getFromLocalStorage } from '../helpers/handleLocalStorage';
 
 export const cartContext = createContext();
 
@@ -42,6 +44,16 @@ function CartProvider({ children }) {
     });
     setCart(newCart);
   }
+
+  useEffect(() => {
+    setCart(getFromLocalStorage('cart'));
+  }, []);
+
+  useEffect(() => {
+    if (cart.length > 1) {
+      saveToLocalStorage('cart', cart);
+    }
+  }, [cart]);
 
   const value = useMemo(() => ({
     cart,
