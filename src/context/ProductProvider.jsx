@@ -8,9 +8,9 @@ import propTypes from 'prop-types';
 import requestCategories from '../services/categoriesApi';
 import requestProducts from '../services/productsApi';
 
-export const storeContext = createContext();
+export const productContext = createContext();
 
-function StoreProvider({ children }) {
+function ProductProvider({ children }) {
   const [categories, setCategories] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState('MLB1051');
   const [products, setProducts] = useState([]);
@@ -64,14 +64,14 @@ function StoreProvider({ children }) {
   }));
 
   return (
-    <storeContext.Provider value={value}>
+    <productContext.Provider value={value}>
       {children}
-    </storeContext.Provider>
+    </productContext.Provider>
   );
 }
 
-StoreProvider.propTypes = {
+ProductProvider.propTypes = {
   children: propTypes.node.isRequired,
 };
 
-export default StoreProvider;
+export default ProductProvider;

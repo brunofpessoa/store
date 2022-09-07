@@ -1,8 +1,8 @@
 import React, { useContext } from 'react';
-import { storeContext } from '../context/StoreProvider';
+import { productContext } from '../context/ProductProvider';
 
 function Categories() {
-  const { categories, setCategoryId } = useContext(storeContext);
+  const { categories, setCategoryId } = useContext(productContext);
 
   return (
     <form>

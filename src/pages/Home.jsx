@@ -1,12 +1,12 @@
 import React from 'react';
 import Categories from '../components/Categories';
 import Products from '../components/Products';
-import SearchBar from '../components/SearchBar';
+import Header from '../components/Header';
 
 function Home() {
   return (
     <div>
-      <SearchBar />
+      <Header />
       <Categories />
       <Products />
     </div>

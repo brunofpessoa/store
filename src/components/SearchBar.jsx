@@ -1,8 +1,8 @@
 import React, { useContext } from 'react';
-import { storeContext } from '../context/StoreProvider';
+import { productContext } from '../context/ProductProvider';
 
 function Categories() {
-  const { query, setQuery, setPerformSearch } = useContext(storeContext);
+  const { query, setQuery, setPerformSearch } = useContext(productContext);
 
   function search(event) {
     event.preventDefault();

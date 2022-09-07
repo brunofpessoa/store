@@ -1,9 +1,13 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import CardItem from '../components/CartItem';
+import { cartContext } from '../context/CartProvider';
 
 function Cart() {
+  const { cart } = useContext(cartContext);
+
   return (
     <div>
-      Cart
+      {cart.map((item) => <CardItem key={`${item.id}${item.catalog_product_id}`} product={item} />)}
     </div>
   );
 }

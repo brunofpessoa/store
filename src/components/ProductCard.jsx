@@ -1,7 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import propTypes from 'prop-types';
+import { cartContext } from '../context/CartProvider';
 
 function ProductCard({ product }) {
+  const { addProductToCart } = useContext(cartContext);
+
   const price = parseFloat(product.price).toFixed(2);
 
   return (
@@ -13,6 +16,7 @@ function ProductCard({ product }) {
         <p>{product.title}</p>
         <p>{`R$ ${price}`}</p>
         {product.shipping.free_shipping && <p>Frete Grátis</p>}
+        <button type="button" onClick={() => addProductToCart(product)}>Adicionar ao carrinho</button>
       </div>
     </div>
   );
