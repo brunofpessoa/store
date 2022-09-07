@@ -1,12 +1,15 @@
 import React, { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Carousel from 'react-elastic-carousel';
+import ClipLoader from 'react-spinners/ClipLoader';
 import { cartContext } from '../context/CartProvider';
 import { productContext } from '../context/ProductProvider';
+import Header from '../components/Header';
 
 function Detail() {
   const {
     products,
+    loading,
     productDetail: {
       id,
       price,
@@ -32,11 +35,9 @@ function Detail() {
     }
   }
 
-  if (id !== undefined) {
-    const formattedPrice = parseFloat(price).toFixed(2);
-
+  function renderDetails() {
     return (
-      <div>
+      <>
         <div>
           <Carousel>
             {pictures.map((pic, index) => (
@@ -44,7 +45,7 @@ function Detail() {
           </Carousel>
           <div>
             <p>{title}</p>
-            <p>{`R$ ${formattedPrice}`}</p>
+            <p>{`R$ ${parseFloat(price).toFixed(2)}`}</p>
             {shipping.free_shipping && <p>Frete Grátis</p>}
             <button
               type="button"
@@ -78,9 +79,18 @@ function Detail() {
             ))}
           </tbody>
         </table>
-      </div>
+      </>
     );
   }
+
+  return (
+    <div>
+      <Header />
+      {id
+        ? renderDetails()
+        : <ClipLoader loading={loading} color="red" size={30} />}
+    </div>
+  );
 }
 
 export default Detail;

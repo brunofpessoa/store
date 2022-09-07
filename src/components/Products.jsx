@@ -1,16 +1,24 @@
 import React, { useContext } from 'react';
+import ClipLoader from 'react-spinners/ClipLoader';
+
 import { productContext } from '../context/ProductProvider';
 import ProductCard from './ProductCard';
 
 function Products() {
-  const { products } = useContext(productContext);
+  const { products, loading } = useContext(productContext);
 
   return (
-    <div>
-      {products.map((product) => (
-        <ProductCard key={product.id} product={product} />
-      ))}
-    </div>
+    <>
+      <ClipLoader loading={loading} color="red" size={30} />
+
+      {!loading && (
+      <div>
+        {products.map((product) => (
+          <ProductCard key={product.id} product={product} />
+        ))}
+      </div>
+      )}
+    </>
   );
 }
 

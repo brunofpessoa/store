@@ -1,15 +1,16 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import propTypes from 'prop-types';
 import SearchBar from './SearchBar';
 
-function Header() {
+function Header({ showSearchBar }) {
   const navigate = useNavigate();
 
   return (
     <header>
       <h1>title</h1>
       <div>
-        <SearchBar />
+        { showSearchBar && <SearchBar />}
         <button
           type="button"
           onClick={() => navigate('/cart')}
@@ -21,5 +22,13 @@ function Header() {
     </header>
   );
 }
+
+Header.propTypes = {
+  showSearchBar: propTypes.bool,
+};
+
+Header.defaultProps = {
+  showSearchBar: false,
+};
 
 export default Header;

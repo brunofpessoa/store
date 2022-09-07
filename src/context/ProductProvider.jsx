@@ -56,8 +56,10 @@ function ProductProvider({ children }) {
   }, [performSearch]);
 
   async function getProductDetail() {
+    setLoading(true);
     const data = await requestProductDetail(selectedProduct);
     setProductDetail(data);
+    setLoading(false);
   }
 
   useEffect(() => {

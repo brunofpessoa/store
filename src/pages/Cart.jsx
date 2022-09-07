@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import CartItem from '../components/CartItem';
+import Header from '../components/Header';
 import { cartContext } from '../context/CartProvider';
 
 function Cart() {
@@ -16,16 +17,23 @@ function Cart() {
   }
 
   function renderCartItems() {
-    return cart.map((item) => (
-      <CartItem
-        key={`${item.id}${item.catalog_product_id}`}
-        product={item}
-      />
-    ));
+    const subtotal = cart.reduce((acc, curr) => acc + parseFloat(curr.price) * curr.quantity, 0);
+    return (
+      <>
+        {cart.map((item) => (
+          <CartItem
+            key={`${item.id}${item.catalog_product_id}`}
+            product={item}
+          />
+        ))}
+        <p>{`Subtotal: R$ ${subtotal.toFixed(2)}`}</p>
+      </>
+    );
   }
 
   return (
     <div>
+      <Header />
       {cart.length > 0
         ? renderCartItems()
         : renderEmptyCart()}
