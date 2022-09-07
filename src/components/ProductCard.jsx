@@ -17,25 +17,28 @@ function ProductCard({ product }) {
   }
 
   return (
-    <div
-      role="button"
-      tabIndex={0}
-      onKeyPress={goToDetail}
-      onClick={goToDetail}
-    >
-      <img src={product.thumbnail} alt={product.title} />
-      <div>
-        <p>{product.title}</p>
-        <p>{`R$ ${price}`}</p>
-        {product.shipping.free_shipping && <p>Frete Grátis</p>}
-        <button
-          type="button"
-          onClick={() => addProductToCart(product)}
-        >
-          Adicionar ao carrinho
-        </button>
+    <div>
+      <div
+        role="button"
+        tabIndex={0}
+        onKeyPress={goToDetail}
+        onClick={goToDetail}
+      >
+        <img src={product.thumbnail} alt={product.title} />
+        <div>
+          <p>{product.title}</p>
+          <p>{`R$ ${price}`}</p>
+          {product.shipping.free_shipping && <p>Frete Grátis</p>}
+        </div>
       </div>
+      <button
+        type="button"
+        onClick={() => addProductToCart(product)}
+      >
+        Adicionar ao carrinho
+      </button>
     </div>
+
   );
 }
 
