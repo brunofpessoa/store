@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import propTypes from 'prop-types';
 import { cartContext } from '../context/CartProvider';
 
-function CardItem({ product }) {
+function CartItem({ product }) {
   const {
     increaseItemQuantity,
     decreaseItemQuantity,
@@ -20,8 +20,9 @@ function CardItem({ product }) {
         {product.shipping.free_shipping && <p>Frete Grátis</p>}
         <div>
           <button type="button" onClick={() => decreaseItemQuantity(product.id)}>-</button>
-          {product.quantity}
+          <p>{product.quantity}</p>
           <button type="button" onClick={() => increaseItemQuantity(product.id)}>+</button>
+          <p>{`Disponível: ${product.available_quantity}`}</p>
         </div>
         <button
           type="button"
@@ -36,8 +37,8 @@ function CardItem({ product }) {
   );
 }
 
-CardItem.propTypes = {
+CartItem.propTypes = {
   product: propTypes.shape({}),
 }.isRequired;
 
-export default CardItem;
+export default CartItem;

@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { cartContext } from '../context/CartProvider';
 import { productContext } from '../context/ProductProvider';
 
@@ -15,6 +16,8 @@ function Detail() {
     },
   } = useContext(productContext);
   const { addProductToCart, removeProductFromCart, cart } = useContext(cartContext);
+
+  const navigate = useNavigate();
 
   function addOrRemoveItem() {
     const item = products.find((product) => product.id === id);
@@ -45,6 +48,12 @@ function Detail() {
               {cart.some((cartItem) => cartItem.id === id)
                 ? 'Remover do carrinho'
                 : 'Adicionar ao carrinho'}
+            </button>
+            <button
+              type="button"
+              onClick={() => navigate('/cart')}
+            >
+              Ir para o carrinho
             </button>
           </div>
         </div>

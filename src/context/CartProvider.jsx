@@ -26,7 +26,7 @@ function CartProvider({ children }) {
 
   function increaseItemQuantity(id) {
     const newCart = cart.map((cartItem) => {
-      if (cartItem.id === id) {
+      if (cartItem.id === id && cartItem.available_quantity > cartItem.quantity) {
         return { ...cartItem, quantity: cartItem.quantity + 1 };
       }
       return cartItem;
