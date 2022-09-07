@@ -1,22 +1,39 @@
 import React, { useContext } from 'react';
 import propTypes from 'prop-types';
+import { useNavigate } from 'react-router-dom';
 import { cartContext } from '../context/CartProvider';
+import { productContext } from '../context/ProductProvider';
 
 function ProductCard({ product }) {
   const { addProductToCart } = useContext(cartContext);
+  const { setSelectedProduct } = useContext(productContext);
+  const navigate = useNavigate();
 
   const price = parseFloat(product.price).toFixed(2);
 
+  function goToDetail() {
+    setSelectedProduct(product.id);
+    navigate(`/detail/${product.id}`);
+  }
+
   return (
-    <div>
-      <div>
-        <img src={product.thumbnail} alt={product.title} />
-      </div>
+    <div
+      role="button"
+      tabIndex={0}
+      onKeyPress={goToDetail}
+      onClick={goToDetail}
+    >
+      <img src={product.thumbnail} alt={product.title} />
       <div>
         <p>{product.title}</p>
         <p>{`R$ ${price}`}</p>
         {product.shipping.free_shipping && <p>Frete Grátis</p>}
-        <button type="button" onClick={() => addProductToCart(product)}>Adicionar ao carrinho</button>
+        <button
+          type="button"
+          onClick={() => addProductToCart(product)}
+        >
+          Adicionar ao carrinho
+        </button>
       </div>
     </div>
   );

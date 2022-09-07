@@ -13,9 +13,7 @@ function CardItem({ product }) {
 
   return (
     <div>
-      <div>
-        <img src={product.thumbnail} alt={product.title} />
-      </div>
+      <img src={product.thumbnail} alt={product.title} />
       <div>
         <p>{product.title}</p>
         <p>{`R$ ${price}`}</p>
@@ -25,7 +23,14 @@ function CardItem({ product }) {
           {product.quantity}
           <button type="button" onClick={() => increaseItemQuantity(product.id)}>+</button>
         </div>
-        <button type="button" onClick={() => removeProductFromCart(product.id)}>Remover ao carrinho</button>
+        <button
+          type="button"
+          onClick={
+            () => removeProductFromCart(product.id)
+          }
+        >
+          Remover ao carrinho
+        </button>
       </div>
     </div>
   );
@@ -33,7 +38,6 @@ function CardItem({ product }) {
 
 CardItem.propTypes = {
   product: propTypes.shape({}),
-  title: propTypes.string,
 }.isRequired;
 
 export default CardItem;

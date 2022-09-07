@@ -6,7 +6,7 @@ function Header() {
   const navigate = useNavigate();
 
   return (
-    <div>
+    <header>
       <h1>title</h1>
       <div>
         <SearchBar />
@@ -18,7 +18,7 @@ function Header() {
         </button>
       </div>
 
-    </div>
+    </header>
   );
 }
 

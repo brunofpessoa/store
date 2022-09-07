@@ -12,15 +12,16 @@ export const cartContext = createContext();
 function CartProvider({ children }) {
   const [cart, setCart] = useState([]);
 
-  function addProductToCart(item) {
+  function addProductToCart(item, quantity = 1) {
     if (!cart.some((cartItem) => cartItem.id === item.id)) {
-      setCart([...cart, { ...item, quantity: 1 }]);
+      setCart([...cart, { ...item, quantity }]);
     }
   }
 
   function removeProductFromCart(id) {
     const newCart = cart.filter((cartItem) => cartItem.id !== id);
     setCart(newCart);
+    saveToLocalStorage('cart', newCart);
   }
 
   function increaseItemQuantity(id) {
@@ -50,7 +51,7 @@ function CartProvider({ children }) {
   }, []);
 
   useEffect(() => {
-    if (cart.length > 1) {
+    if (cart.length > 0) {
       saveToLocalStorage('cart', cart);
     }
   }, [cart]);

@@ -7,6 +7,7 @@ import React, {
 import propTypes from 'prop-types';
 import requestCategories from '../services/categoriesApi';
 import requestProducts from '../services/productsApi';
+import requestProductDetail from '../services/productDetailApi';
 
 export const productContext = createContext();
 
@@ -17,6 +18,8 @@ function ProductProvider({ children }) {
   const [query, setQuery] = useState('');
   const [loading, setLoading] = useState(true);
   const [performSearch, setPerformSearch] = useState(false);
+  const [selectedProduct, setSelectedProduct] = useState('');
+  const [productDetail, setProductDetail] = useState({});
 
   async function getCategories() {
     setLoading(true);
@@ -52,6 +55,17 @@ function ProductProvider({ children }) {
     }
   }, [performSearch]);
 
+  async function getProductDetail() {
+    const data = await requestProductDetail(selectedProduct);
+    setProductDetail(data);
+  }
+
+  useEffect(() => {
+    if (selectedProduct !== '') {
+      getProductDetail();
+    }
+  }, [selectedProduct]);
+
   const value = useMemo(() => ({
     categories,
     selectedCategory,
@@ -61,6 +75,9 @@ function ProductProvider({ children }) {
     query,
     setQuery,
     setPerformSearch,
+    selectedProduct,
+    setSelectedProduct,
+    productDetail,
   }));
 
   return (
