@@ -8,11 +8,11 @@ function Products() {
   const { products, loading } = useContext(productContext);
 
   return (
-    <div>
+    <div className="pad-l">
       <ClipLoader loading={loading} color="red" size={30} />
 
       {!loading && (
-      <div className="flex flex-wrap gap-l">
+      <div className="flex flex-wrap gap-l jc-c">
         {products.map((product) => (
           <ProductCard key={product.id} product={product} />
         ))}

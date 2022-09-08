@@ -14,7 +14,7 @@ function Header({ showSearchBar }) {
   return (
     <header className="flex jc-sb pad-l">
       <div className="flex ai-c gap-l">
-        <FaStoreAlt />
+        <FaStoreAlt size={50} />
         <h1>Bruno&apos;s Store</h1>
       </div>
       <div className="flex ai-c">
@@ -26,7 +26,7 @@ function Header({ showSearchBar }) {
           onClick={() => navigate('/cart')}
         >
           <div className="flex ai-c gap-s">
-            <GiShoppingCart />
+            <GiShoppingCart size={40} />
             {cart.length > 0 && <p>{cart.length}</p>}
           </div>
         </button>

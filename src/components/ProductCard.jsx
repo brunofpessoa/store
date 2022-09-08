@@ -19,7 +19,7 @@ function ProductCard({ product }) {
   }
 
   return (
-    <div className="flex flex-column gap-m card">
+    <div className="flex flex-column gap-m card jc-sb ai-c">
       <div
         role="button"
         tabIndex={0}
@@ -29,7 +29,7 @@ function ProductCard({ product }) {
       >
         <img src={product.thumbnail} alt={product.title} />
         <div className="flex flex-column gap-s">
-          <p>{product.title}</p>
+          <p className="card-title">{product.title}</p>
           <p>{`R$ ${price}`}</p>
           {product.shipping.free_shipping && <p>Frete Grátis</p>}
         </div>
@@ -38,10 +38,12 @@ function ProductCard({ product }) {
         type="button"
         onClick={() => addProductToCart(product)}
       >
-        Adicionar ao carrinho
-        {cart.some((cartItem) => cartItem.id === product.id)
-          ? <BsFillCartCheckFill />
-          : <BsCartPlusFill />}
+        <div className="flex gap-s ai-c jc-c">
+          Adicionar ao carrinho
+          {cart.some((cartItem) => cartItem.id === product.id)
+            ? <BsFillCartCheckFill size={20} style={{ fill: 'green' }} />
+            : <BsCartPlusFill size={20} />}
+        </div>
       </button>
     </div>
 
