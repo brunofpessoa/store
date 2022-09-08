@@ -12,6 +12,7 @@ function Detail() {
   const {
     products,
     loading,
+    description,
     productDetail: {
       id,
       price,
@@ -51,24 +52,26 @@ function Detail() {
             {shipping.free_shipping && <p>Frete Grátis</p>}
             <div className="flex flex-column gap-m ai-c">
               <button
+                className="width-100"
                 type="button"
                 onClick={addOrRemoveItem}
               >
                 {cart.some((cartItem) => cartItem.id === id)
                   ? (
-                    <div className="flex ai-c gap-s">
+                    <div className="flex ai-c jc-c gap-s">
                       Remover do carrinho
                       <BsCartXFill size={20} style={{ fill: 'crimson' }} />
                     </div>
                   )
                   : (
-                    <div className="flex ai-c gap-s">
+                    <div className="flex ai-c jc-c gap-s">
                       Adicionar ao carrinho
                       <BsCartPlusFill size={20} />
                     </div>
                   )}
               </button>
               <button
+                className="width-100"
                 type="button"
                 onClick={() => navigate('/cart')}
               >
@@ -78,21 +81,37 @@ function Detail() {
           </div>
         </div>
 
-        <table className="table">
-          <thead>
-            <tr>
-              <th>Especificações</th>
-            </tr>
-          </thead>
-          <tbody>
-            {attributes.map((att) => (
-              <tr key={att.id}>
-                <td>{att.name}</td>
-                <td>{att.value_name}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+        <div className="flex flex-column gap-l pad-l detail-main">
+
+          <div>
+            <h2>
+              Descrição do produto
+            </h2>
+            <p>{description}</p>
+          </div>
+          <div>
+            <h2>
+              Especificações técnicas
+            </h2>
+            <table className="table">
+              <thead>
+                <tr>
+                  <th>Atributo</th>
+                  <th>Valor</th>
+                </tr>
+              </thead>
+              <tbody>
+                {attributes.map((att, index) => (
+                  <tr key={att.id} className={index % 2 === 0 ? 'odd-row' : 'even-row'}>
+                    <td>{att.name}</td>
+                    <td>{att.value_name}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+
       </div>
     );
   }

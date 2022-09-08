@@ -12,8 +12,8 @@ function Header({ showSearchBar }) {
   const navigate = useNavigate();
 
   return (
-    <header className="flex jc-sb pad-l">
-      <div className="flex ai-c gap-l">
+    <header className="flex jc-sb pad-l theme">
+      <div className="flex ai-c gap-l theme">
         <FaStoreAlt size={50} />
         <h1>Bruno&apos;s Store</h1>
       </div>
@@ -22,16 +22,16 @@ function Header({ showSearchBar }) {
       </div>
       <div className="flex">
         <button
+          className="transparent-btn"
           type="button"
           onClick={() => navigate('/cart')}
         >
-          <div className="flex ai-c gap-s">
+          <div className="flex ai-c">
             <GiShoppingCart size={40} />
             {cart.length > 0 && <p>{cart.length}</p>}
           </div>
         </button>
       </div>
-
     </header>
   );
 }

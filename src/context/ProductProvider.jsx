@@ -9,6 +9,7 @@ import propTypes from 'prop-types';
 import requestCategories from '../services/categoriesApi';
 import requestProducts from '../services/productsApi';
 import requestProductDetail from '../services/productDetailApi';
+import requestDescription from '../services/descriptionApi';
 
 export const productContext = createContext();
 
@@ -21,6 +22,7 @@ function ProductProvider({ children }) {
   const [performSearch, setPerformSearch] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState('');
   const [productDetail, setProductDetail] = useState({});
+  const [description, setDescription] = useState('');
 
   async function getCategories() {
     setLoading(true);
@@ -63,9 +65,15 @@ function ProductProvider({ children }) {
     setLoading(false);
   }
 
+  async function getDescription() {
+    const data = await requestDescription(selectedProduct);
+    setDescription(data.plain_text);
+  }
+
   useEffect(() => {
     if (selectedProduct !== '') {
       getProductDetail();
+      getDescription();
     }
   }, [selectedProduct]);
 
@@ -81,6 +89,7 @@ function ProductProvider({ children }) {
     selectedProduct,
     setSelectedProduct,
     productDetail,
+    description,
   }));
 
   return (

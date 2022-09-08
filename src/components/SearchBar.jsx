@@ -18,7 +18,7 @@ function Categories() {
           id="search"
           type="text"
           value={query}
-          placeholder="buscar produtos, marcas e mais..."
+          placeholder="buscar produtos..."
           onChange={({ target }) => setQuery(target.value)}
         />
       </label>

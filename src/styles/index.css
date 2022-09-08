@@ -8,6 +8,9 @@
   --bg: rgb(245 245 245);
   --radius-s: 10px;
   --radius-m: 20px;
+  --theme: #9b4dee;
+  --theme-txt: #fff;
+  --primary: #f6ea49;
 }
 
 * {
@@ -21,6 +24,12 @@
   text-decoration: none;
 }
 
+p,
+h2,
+td {
+  padding: var(--pad-s);
+}
+
 body {
   background-color: var(--bg);
 }
@@ -29,7 +38,10 @@ button,
 input {
   padding: var(--pad-s);
   border-radius: var(--radius-s);
-  max-width: fit-content;
+}
+
+button {
+  background-color: var(--primary);
 }
 
 .flex {
@@ -133,7 +145,29 @@ input {
   border: 1px solid rgb(238 238 238);
 }
 
-.table {
-  max-width: fit-content;
-  align-self: center;
+.width-100 {
+  width: 100%;
+}
+
+.odd-row {
+  background-color: var(--bg);
+}
+
+.even-row {
+  background-color: #fff;
+}
+
+.theme {
+  background-color: var(--theme);
+  color: var(--theme-txt);
+}
+
+.transparent-btn {
+  background: none;
+  background-color: none;
+  color: var(--primary);
+}
+
+.transparent-btn:hover {
+  cursor: pointer;
 }
