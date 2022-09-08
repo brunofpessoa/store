@@ -13,11 +13,15 @@ function Categories() {
 
   return (
     <form>
-      <input
-        type="text"
-        value={query}
-        onChange={({ target }) => setQuery(target.value)}
-      />
+      <label htmlFor="search">
+        <input
+          id="search"
+          type="text"
+          value={query}
+          placeholder="buscar produtos, marcas e mais..."
+          onChange={({ target }) => setQuery(target.value)}
+        />
+      </label>
 
       <button
         type="submit"

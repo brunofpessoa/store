@@ -8,8 +8,10 @@ function Home() {
   return (
     <div>
       <Header showSearchBar />
-      <Categories />
-      <Products />
+      <div>
+        <Categories />
+        <Products />
+      </div>
     </div>
   );
 }
