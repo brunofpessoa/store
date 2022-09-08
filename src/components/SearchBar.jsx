@@ -12,7 +12,7 @@ function Categories() {
   }
 
   return (
-    <form>
+    <form className="flex gap-m">
       <label htmlFor="search">
         <input
           id="search"
@@ -27,8 +27,10 @@ function Categories() {
         type="submit"
         onClick={search}
       >
-        Pesquisar
-        <BiSearchAlt />
+        <div className="flex ai-c gap-s">
+          Pesquisar
+          <BiSearchAlt />
+        </div>
       </button>
     </form>
   );

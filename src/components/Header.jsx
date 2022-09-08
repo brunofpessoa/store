@@ -12,19 +12,23 @@ function Header({ showSearchBar }) {
   const navigate = useNavigate();
 
   return (
-    <header>
-      <div>
+    <header className="flex jc-sb pad-l">
+      <div className="flex ai-c gap-l">
         <FaStoreAlt />
         <h1>Bruno&apos;s Store</h1>
       </div>
-      <div>
+      <div className="flex ai-c">
         { showSearchBar && <SearchBar />}
+      </div>
+      <div className="flex">
         <button
           type="button"
           onClick={() => navigate('/cart')}
         >
-          <GiShoppingCart />
-          {cart.length > 0 && <p>{cart.length}</p>}
+          <div className="flex ai-c gap-s">
+            <GiShoppingCart />
+            {cart.length > 0 && <p>{cart.length}</p>}
+          </div>
         </button>
       </div>
 

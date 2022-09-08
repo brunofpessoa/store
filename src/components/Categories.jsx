@@ -9,7 +9,7 @@ function Categories() {
   return (
     <>
       {categories.length < 1 && <ClipLoader loading={loading} color="red" size={30} />}
-      <form>
+      <form className="flex flex-column gap-s pad-l">
         {categories.map((category) => (
           <label htmlFor={category.id} key={category.id}>
             <input

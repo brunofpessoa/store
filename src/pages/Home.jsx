@@ -8,7 +8,7 @@ function Home() {
   return (
     <div>
       <Header showSearchBar />
-      <div>
+      <div className="flex">
         <Categories />
         <Products />
       </div>
