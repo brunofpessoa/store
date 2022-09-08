@@ -3,8 +3,7 @@
   box-sizing: border-box;
   list-style-type: none;
   margin: 0;
-
-  /* outline: 1px solid red; */
+  outline: 1px solid red;
   padding: 0;
   text-decoration: none;
 }
@@ -71,4 +70,8 @@
 
 .pad-l {
   padding: 20px 40px;
+}
+
+.card {
+  max-width: 200px;
 }

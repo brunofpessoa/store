@@ -19,15 +19,16 @@ function ProductCard({ product }) {
   }
 
   return (
-    <div>
+    <div className="flex flex-column gap-m card">
       <div
         role="button"
         tabIndex={0}
         onKeyPress={goToDetail}
         onClick={goToDetail}
+        className="flex flex-column gap-m"
       >
         <img src={product.thumbnail} alt={product.title} />
-        <div>
+        <div className="flex flex-column gap-s">
           <p>{product.title}</p>
           <p>{`R$ ${price}`}</p>
           {product.shipping.free_shipping && <p>Frete Grátis</p>}

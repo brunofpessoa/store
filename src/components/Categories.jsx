@@ -11,7 +11,7 @@ function Categories() {
       {categories.length < 1 && <ClipLoader loading={loading} color="red" size={30} />}
       <form className="flex flex-column gap-s pad-l">
         {categories.map((category) => (
-          <label htmlFor={category.id} key={category.id}>
+          <label htmlFor={category.id} key={category.id} className="flex ai-c gap-s">
             <input
               name="category"
               type="radio"
