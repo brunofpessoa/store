@@ -5,6 +5,7 @@ import React, {
   useState,
 } from 'react';
 import propTypes from 'prop-types';
+
 import requestCategories from '../services/categoriesApi';
 import requestProducts from '../services/productsApi';
 import requestProductDetail from '../services/productDetailApi';

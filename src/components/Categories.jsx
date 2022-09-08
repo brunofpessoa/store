@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import ClipLoader from 'react-spinners/ClipLoader';
+
 import { productContext } from '../context/ProductProvider';
 
 function Categories() {

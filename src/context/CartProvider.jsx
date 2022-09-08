@@ -5,7 +5,11 @@ import React, {
   useState,
 } from 'react';
 import propTypes from 'prop-types';
-import { saveToLocalStorage, getFromLocalStorage } from '../helpers/handleLocalStorage';
+
+import {
+  saveToLocalStorage,
+  getFromLocalStorage,
+} from '../helpers/handleLocalStorage';
 
 export const cartContext = createContext();
 

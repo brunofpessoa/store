@@ -1,11 +1,13 @@
 import React, { useContext } from 'react';
 import propTypes from 'prop-types';
 import { useNavigate } from 'react-router-dom';
+import { BsCartPlusFill, BsFillCartCheckFill } from 'react-icons/bs';
+
 import { cartContext } from '../context/CartProvider';
 import { productContext } from '../context/ProductProvider';
 
 function ProductCard({ product }) {
-  const { addProductToCart } = useContext(cartContext);
+  const { addProductToCart, cart } = useContext(cartContext);
   const { setSelectedProduct } = useContext(productContext);
   const navigate = useNavigate();
 
@@ -36,6 +38,9 @@ function ProductCard({ product }) {
         onClick={() => addProductToCart(product)}
       >
         Adicionar ao carrinho
+        {cart.some((cartItem) => cartItem.id === product.id)
+          ? <BsFillCartCheckFill />
+          : <BsCartPlusFill />}
       </button>
     </div>
 

@@ -1,4 +1,6 @@
 import React, { useContext } from 'react';
+import { BiSearchAlt } from 'react-icons/bi';
+
 import { productContext } from '../context/ProductProvider';
 
 function Categories() {
@@ -22,6 +24,7 @@ function Categories() {
         onClick={search}
       >
         Pesquisar
+        <BiSearchAlt />
       </button>
     </form>
   );

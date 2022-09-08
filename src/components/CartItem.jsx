@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import propTypes from 'prop-types';
+
 import { cartContext } from '../context/CartProvider';
 
 function CartItem({ product }) {

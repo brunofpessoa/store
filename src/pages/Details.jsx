@@ -2,6 +2,8 @@ import React, { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Carousel from 'react-elastic-carousel';
 import ClipLoader from 'react-spinners/ClipLoader';
+import { BsCartXFill, BsCartPlusFill } from 'react-icons/bs';
+
 import { cartContext } from '../context/CartProvider';
 import { productContext } from '../context/ProductProvider';
 import Header from '../components/Header';
@@ -52,8 +54,18 @@ function Detail() {
               onClick={addOrRemoveItem}
             >
               {cart.some((cartItem) => cartItem.id === id)
-                ? 'Remover do carrinho'
-                : 'Adicionar ao carrinho'}
+                ? (
+                  <div>
+                    Remover do carrinho
+                    <BsCartXFill />
+                  </div>
+                )
+                : (
+                  <div>
+                    Adicionar ao carrinho
+                    <BsCartPlusFill />
+                  </div>
+                )}
             </button>
             <button
               type="button"
