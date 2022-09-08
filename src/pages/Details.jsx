@@ -16,7 +16,6 @@ function Detail() {
     productDetail: {
       id,
       price,
-      // thumbnail,
       title,
       shipping,
       attributes,
@@ -39,6 +38,13 @@ function Detail() {
   }
 
   function renderDetails() {
+    const {
+      installments: {
+        quantity,
+        amount,
+      },
+    } = products.find((product) => product.id === id);
+
     return (
       <div className="flex flex-column gap-l pad-l">
         <div className="flex gap-l detail-main pad-l">
@@ -47,9 +53,10 @@ function Detail() {
               <img key={pic.id} src={pic.secure_url} alt={`imagem ${index}`} />))}
           </Carousel>
           <div className="flex flex-column gap-m pad-m section">
-            <p>{title}</p>
-            <p>{`R$ ${parseFloat(price).toFixed(2)}`}</p>
-            {shipping.free_shipping && <p>Frete Grátis</p>}
+            <h2>{title}</h2>
+            <p className="bold large">{`R$ ${parseFloat(price).toFixed(2)}`}</p>
+            <p className="large green">{`${quantity} x R$ ${amount.toFixed(2)}`}</p>
+            {shipping.free_shipping && <p className="green">Frete Grátis</p>}
             <div className="flex flex-column gap-m ai-c">
               <button
                 className="width-100"

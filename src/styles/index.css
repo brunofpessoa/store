@@ -44,6 +44,10 @@ button {
   background-color: var(--primary);
 }
 
+button:hover {
+  cursor: pointer;
+}
+
 .flex {
   display: flex;
 }
@@ -68,6 +72,10 @@ button {
   align-items: flex-end;
 }
 
+.ac-c {
+  align-content: center;
+}
+
 .jc-c {
   justify-content: center;
 }
@@ -82,10 +90,6 @@ button {
 
 .js-end {
   justify-content: flex-end;
-}
-
-.ac-c {
-  align-content: center;
 }
 
 .gap-s {
@@ -121,9 +125,13 @@ button {
 }
 
 .card-title {
-  height: 40px;
+  height: 3rem;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+.card-image {
+  max-width: 100%;
 }
 
 .fit-content {
@@ -168,6 +176,19 @@ button {
   color: var(--primary);
 }
 
-.transparent-btn:hover {
-  cursor: pointer;
+.categories {
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 10%);
+  border: 1px solid rgb(238 238 238);
+}
+
+.green {
+  color: green;
+}
+
+.bold {
+  font-weight: 700;
+}
+
+.large {
+  font-size: 2rem;
 }

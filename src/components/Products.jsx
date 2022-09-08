@@ -8,7 +8,7 @@ function Products() {
   const { products, loading } = useContext(productContext);
 
   return (
-    <div className="pad-l">
+    <div className="flex width-100 jc-c ai-c pad-l">
       <ClipLoader loading={loading} color="red" size={30} />
 
       {!loading && (

@@ -27,7 +27,7 @@ function Categories() {
         type="submit"
         onClick={search}
       >
-        <div className="flex ai-c gap-s">
+        <div className="flex ai-c gap-s jc-c ">
           Pesquisar
           <BiSearchAlt />
         </div>

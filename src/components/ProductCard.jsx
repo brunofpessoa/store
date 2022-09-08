@@ -27,11 +27,15 @@ function ProductCard({ product }) {
         onClick={goToDetail}
         className="flex flex-column gap-m"
       >
-        <img src={product.thumbnail} alt={product.title} />
+        <img
+          className="card-image"
+          src={product.thumbnail.replace('I.jpg', 'J.jpg')}
+          alt={product.title}
+        />
         <div className="flex flex-column gap-s">
           <p className="card-title">{product.title}</p>
-          <p>{`R$ ${price}`}</p>
-          {product.shipping.free_shipping && <p>Frete Grátis</p>}
+          <p className="bold">{`R$ ${price}`}</p>
+          {product.shipping.free_shipping && <p className="green">Frete Grátis</p>}
         </div>
       </div>
       <button

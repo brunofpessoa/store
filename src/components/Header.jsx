@@ -13,10 +13,12 @@ function Header({ showSearchBar }) {
 
   return (
     <header className="flex jc-sb pad-l theme">
-      <div className="flex ai-c gap-l theme">
-        <FaStoreAlt size={50} />
-        <h1>Bruno&apos;s Store</h1>
-      </div>
+      <button type="button" className="transparent-btn" onClick={() => navigate('/')}>
+        <div className="flex ai-c gap-l theme">
+          <FaStoreAlt size={50} />
+          <h1>Bruno&apos;s Store</h1>
+        </div>
+      </button>
       <div className="flex ai-c">
         { showSearchBar && <SearchBar />}
       </div>
