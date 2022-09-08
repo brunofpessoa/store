@@ -13,13 +13,19 @@ function CartItem({ product }) {
   const price = parseFloat(product.price).toFixed(2);
 
   return (
-    <div>
-      <img src={product.thumbnail} alt={product.title} />
-      <div>
-        <p>{product.title}</p>
-        <p>{`R$ ${price}`}</p>
-        {product.shipping.free_shipping && <p>Frete Grátis</p>}
-        <div>
+    <div className="card jc-sb flex flex-column gap-s">
+      <img
+        className="card-image"
+        src={product.thumbnail.replace('I.jpg', 'J.jpg')}
+        alt={product.title}
+      />
+      <div className="flex flex-column gap-m jc-c">
+        <p className="card-title">{product.title}</p>
+        <p className="bold">{`R$ ${price}`}</p>
+        {product.shipping.free_shipping && <p className="green">Frete Grátis</p>}
+      </div>
+      <div className="flex flex-column gap-s">
+        <div className="flex gap-s ai-c">
           <button type="button" onClick={() => decreaseItemQuantity(product.id)}>-</button>
           <p>{product.quantity}</p>
           <button type="button" onClick={() => increaseItemQuantity(product.id)}>+</button>

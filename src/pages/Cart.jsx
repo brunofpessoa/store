@@ -20,7 +20,7 @@ function Cart() {
   function renderCartItems() {
     const subtotal = cart.reduce((acc, curr) => acc + parseFloat(curr.price) * curr.quantity, 0);
     return (
-      <>
+      <div className="flex flex-wrap gap-l pad-l jc-c ai-sb">
         {cart.map((item) => (
           <CartItem
             key={`${item.id}${item.catalog_product_id}`}
@@ -28,7 +28,7 @@ function Cart() {
           />
         ))}
         <p>{`Subtotal: R$ ${subtotal.toFixed(2)}`}</p>
-      </>
+      </div>
     );
   }
 
