@@ -37,25 +37,34 @@ function Detail() {
     }
   }
 
-  function renderDetails() {
-    const {
-      installments: {
-        quantity,
-        amount,
-      },
-    } = products.find((product) => product.id === id);
+  function getQuantity() {
+    if (products.length > 0) {
+      return products.find((product) => product.id === id).installments.quantity;
+    }
+    return '';
+  }
 
+  function getAmount() {
+    if (products.length > 0) {
+      return products.find((product) => product.id === id).installments.amount;
+    }
+    return '';
+  }
+
+  function renderDetails() {
     return (
       <div className="flex flex-column gap-l pad-l">
-        <div className="flex gap-l detail-main pad-l">
-          <Carousel>
-            {pictures.map((pic, index) => (
-              <img key={pic.id} src={pic.secure_url} alt={`imagem ${index}`} />))}
-          </Carousel>
-          <div className="flex flex-column gap-m pad-m section">
+        <div className="flex gap-l detail-main pad-l jc-c flex-wrap">
+          <div className="carousel">
+            <Carousel>
+              {pictures.map((pic, index) => (
+                <img className="carousel-img" key={pic.id} src={pic.secure_url} alt={`imagem ${index}`} />))}
+            </Carousel>
+          </div>
+          <div className="flex flex-column gap-m pad-m section detail-resume">
             <h2>{title}</h2>
             <p className="bold large">{`R$ ${parseFloat(price).toFixed(2)}`}</p>
-            <p className="large green">{`${quantity} x R$ ${amount.toFixed(2)}`}</p>
+            <p className="large green">{`${getQuantity()} x R$ ${getAmount().toFixed(2)}`}</p>
             {shipping.free_shipping && <p className="green">Frete Grátis</p>}
             <div className="flex flex-column gap-m ai-c">
               <button

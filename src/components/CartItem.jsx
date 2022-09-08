@@ -14,21 +14,23 @@ function CartItem({ product }) {
 
   return (
     <div className="card jc-sb flex flex-column gap-s">
-      <img
-        className="card-image"
-        src={product.thumbnail.replace('I.jpg', 'J.jpg')}
-        alt={product.title}
-      />
-      <div className="flex flex-column gap-m jc-c">
-        <p className="card-title">{product.title}</p>
-        <p className="bold">{`R$ ${price}`}</p>
-        {product.shipping.free_shipping && <p className="green">Frete Grátis</p>}
+      <div>
+        <img
+          className="card-image"
+          src={product.thumbnail.replace('I.jpg', 'J.jpg')}
+          alt={product.title}
+        />
+        <div className="flex flex-column gap-m jc-c">
+          <p className="card-title">{product.title}</p>
+          <p className="bold">{`R$ ${price}`}</p>
+          {product.shipping.free_shipping && <p className="green">Frete Grátis</p>}
+        </div>
       </div>
       <div className="flex flex-column gap-s">
         <div className="flex gap-s ai-c">
-          <button type="button" onClick={() => decreaseItemQuantity(product.id)}>-</button>
-          <p>{product.quantity}</p>
-          <button type="button" onClick={() => increaseItemQuantity(product.id)}>+</button>
+          <button className="quantity-btn" type="button" onClick={() => decreaseItemQuantity(product.id)}>-</button>
+          <p className="bold">{product.quantity}</p>
+          <button className="quantity-btn" type="button" onClick={() => increaseItemQuantity(product.id)}>+</button>
           <p>{`Disponível: ${product.available_quantity}`}</p>
         </div>
         <button

@@ -138,7 +138,11 @@ button:hover {
 }
 
 .carousel {
-  width: fit-content;
+  width: clamp(300px, 40%, 40%);
+}
+
+.carousel-img {
+  max-width: 100%;
 }
 
 .detail-main {
@@ -154,6 +158,10 @@ button:hover {
 
 .width-100 {
   width: 100%;
+}
+
+.max-width-60 {
+  max-width: clamp(300px, 50%, 1400px);
 }
 
 .odd-row {
@@ -180,6 +188,12 @@ button:hover {
   border: 1px solid rgb(238 238 238);
 }
 
+.resume {
+  border-radius: var(--radius-m);
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 10%);
+  background-color: white;
+}
+
 .green {
   color: green;
 }
@@ -190,4 +204,13 @@ button:hover {
 
 .large {
   font-size: 2rem;
+}
+
+.quantity-btn {
+  padding: 5px;
+  width: 25px;
+}
+
+.detail-resume {
+  max-width: 500px;
 }
