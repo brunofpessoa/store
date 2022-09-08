@@ -24,7 +24,6 @@
   text-decoration: none;
 }
 
-p,
 h2,
 td {
   padding: var(--pad-s);

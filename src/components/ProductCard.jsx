@@ -32,13 +32,14 @@ function ProductCard({ product }) {
           src={product.thumbnail.replace('I.jpg', 'J.jpg')}
           alt={product.title}
         />
-        <div className="flex flex-column gap-s">
+        <div className="flex flex-column">
           <p className="card-title">{product.title}</p>
           <p className="bold">{`R$ ${price}`}</p>
           {product.shipping.free_shipping && <p className="green">Frete Grátis</p>}
         </div>
       </div>
       <button
+        className="width-100"
         type="button"
         onClick={() => addProductToCart(product)}
       >
