@@ -1,10 +1,10 @@
 :root {
-  --gap-s: 5px;
-  --gap-m: 10px;
-  --gap-l: 20px;
-  --pad-s: 10px;
-  --pad-m: 20px;
-  --pad-l: 30px;
+  --gap-s: 0.3rem;
+  --gap-m: 0.5rem;
+  --gap-l: 0.7rem;
+  --pad-s: 0.5rem;
+  --pad-m: 0.8rem;
+  --pad-l: 1.1rem;
   --bg: rgb(245 245 245);
   --radius-s: 10px;
   --radius-m: 20px;
