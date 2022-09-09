@@ -14,9 +14,6 @@ function Categories() {
         onChange={({ target }) => setCategoryId(target.value)}
         value={selectedCategory}
       >
-        <option value="">
-          Selecione uma categoria
-        </option>
         {categories.map((category) => (
           <option
             key={category.id}
