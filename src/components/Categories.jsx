@@ -4,23 +4,25 @@ import ClipLoader from 'react-spinners/ClipLoader';
 import { productContext } from '../context/ProductProvider';
 
 function Categories() {
-  const { categories, setCategoryId, loading } = useContext(productContext);
+  const {
+    categories, setCategoryId, loading, selectedCategory,
+  } = useContext(productContext);
 
   return (
     <>
       {categories.length < 1 && <ClipLoader loading={loading} color="red" size={30} />}
       <form className="flex flex-column gap-s pad-l fit-content categories">
+        <h2 className="text-center">Categorias</h2>
         {categories.map((category) => (
-          <label htmlFor={category.id} key={category.id} className="flex ai-c gap-s">
-            <input
-              name="category"
-              type="radio"
-              id={category.id}
-              value={category.id}
-              onChange={({ target }) => setCategoryId(target.value)}
-            />
+          <button
+            key={`button${category.id}`}
+            className={selectedCategory === category.id ? '' : 'transparent-btn black'}
+            type="button"
+            id={category.id}
+            onClick={() => setCategoryId(category.id)}
+          >
             {category.name}
-          </label>
+          </button>
         ))}
       </form>
     </>

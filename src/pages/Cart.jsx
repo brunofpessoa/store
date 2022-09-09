@@ -29,7 +29,7 @@ function Cart() {
     const subtotal = cart.reduce((acc, curr) => acc + parseFloat(curr.price) * curr.quantity, 0);
     return (
       <div className="flex gap-l pad-l flex-wrap jc-c">
-        <div className="flex flex-wrap gap-l jc-c ai-sb max-width-60">
+        <div className="flex flex-wrap gap-l jc-c ai-sb max-width-50">
           {cart.map((item) => (
             <CartItem
               key={`${item.id}${item.catalog_product_id}`}

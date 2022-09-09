@@ -99,6 +99,7 @@ function ProductProvider({ children }) {
     productDetail,
     description,
     installments,
+    setSelectedCategory,
   }));
 
   return (

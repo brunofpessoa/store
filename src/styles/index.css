@@ -133,7 +133,7 @@ button:hover {
 }
 
 .card-title {
-  height: 3rem;
+  max-height: calc(2rem + var(--gap-s));
   overflow: hidden;
   text-overflow: ellipsis;
 }
@@ -169,8 +169,8 @@ button:hover {
   width: 100%;
 }
 
-.max-width-60 {
-  max-width: clamp(300px, 50%, 1400px);
+.max-width-50 {
+  max-width: clamp(300px, calc(50% + 300px), 1400px);
 }
 
 .odd-row {
@@ -202,6 +202,7 @@ button:hover {
   border-radius: var(--radius-m);
   box-shadow: 0 10px 15px -3px rgb(0 0 0 / 10%);
   background-color: white;
+  max-width: 500px;
 }
 
 .green {
@@ -237,6 +238,14 @@ button:hover {
 
 .grow {
   flex-grow: 1;
+}
+
+.black {
+  color: black;
+}
+
+.text-center {
+  text-align: center;
 }
 
 @media (max-width: 900px) {

@@ -4,10 +4,13 @@ import { BiSearchAlt } from 'react-icons/bi';
 import { productContext } from '../context/ProductProvider';
 
 function Categories() {
-  const { query, setQuery, setPerformSearch } = useContext(productContext);
+  const {
+    query, setQuery, setSelectedCategory, setPerformSearch,
+  } = useContext(productContext);
 
   function search(event) {
     event.preventDefault();
+    setSelectedCategory('');
     setPerformSearch(true);
   }
 

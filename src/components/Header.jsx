@@ -42,9 +42,11 @@ function Header({ showSearchBar }) {
           </div>
         </div>
       </div>
+      { showSearchBar && (
       <div className="select-categories">
         <CategoriesSelect />
       </div>
+      )}
     </header>
   );
 }
