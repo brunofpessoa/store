@@ -7,6 +7,7 @@ import { BsCartXFill, BsCartPlusFill } from 'react-icons/bs';
 import { cartContext } from '../context/CartProvider';
 import { productContext } from '../context/ProductProvider';
 import Header from '../components/Header';
+import Footer from '../components/Footer';
 
 function Detail() {
   const {
@@ -126,6 +127,7 @@ function Detail() {
       {id
         ? renderDetails()
         : <ClipLoader loading={loading} color="red" size={30} />}
+      <Footer />
     </div>
   );
 }

@@ -174,7 +174,7 @@ button:hover {
 
 .theme {
   background-color: var(--theme);
-  color: var(--theme-txt);
+  color: var(--primary);
 }
 
 .transparent-btn {
@@ -186,6 +186,7 @@ button:hover {
 .categories {
   box-shadow: 0 10px 15px -3px rgb(0 0 0 / 10%);
   border: 1px solid rgb(238 238 238);
+  background-color: white;
 }
 
 .resume {
@@ -213,4 +214,14 @@ button:hover {
 
 .detail-resume {
   max-width: 500px;
+}
+
+.footer {
+  color: white;
+  background-color: var(--theme);
+  bottom: 0;
+}
+
+.icon {
+  width: 30px;
 }
