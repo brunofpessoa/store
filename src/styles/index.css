@@ -170,7 +170,7 @@ button:hover {
 }
 
 .max-width-50 {
-  max-width: clamp(300px, calc(50% + 300px), 1400px);
+  max-width: clamp(300px, calc(50% + 100px), 1400px);
 }
 
 .odd-row {
