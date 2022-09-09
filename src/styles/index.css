@@ -244,8 +244,8 @@ button:hover {
   color: black;
 }
 
-.text-center {
-  text-align: center;
+.text-left {
+  text-align: left;
 }
 
 @media (max-width: 900px) {

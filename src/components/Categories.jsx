@@ -12,11 +12,11 @@ function Categories() {
     <>
       {categories.length < 1 && <ClipLoader loading={loading} color="red" size={30} />}
       <form className="flex flex-column gap-s pad-l fit-content categories">
-        <h2 className="text-center">Categorias</h2>
+        <h2>Categorias</h2>
         {categories.map((category) => (
           <button
             key={`button${category.id}`}
-            className={selectedCategory === category.id ? '' : 'transparent-btn black'}
+            className={selectedCategory === category.id ? 'text-left' : 'transparent-btn black text-left'}
             type="button"
             id={category.id}
             onClick={() => setCategoryId(category.id)}
