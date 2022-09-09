@@ -1,31 +1,27 @@
 import React, { useContext } from 'react';
-import ClipLoader from 'react-spinners/ClipLoader';
 
 import { productContext } from '../context/ProductProvider';
 
 function Categories() {
   const {
-    categories, setCategoryId, loading, selectedCategory,
+    categories, setCategoryId, selectedCategory,
   } = useContext(productContext);
 
   return (
-    <>
-      {categories.length < 1 && <ClipLoader loading={loading} color="red" size={30} />}
-      <form className="flex flex-column gap-s pad-l fit-content categories">
-        <h2>Categorias</h2>
-        {categories.map((category) => (
-          <button
-            key={`button${category.id}`}
-            className={selectedCategory === category.id ? 'text-left' : 'transparent-btn black text-left'}
-            type="button"
-            id={category.id}
-            onClick={() => setCategoryId(category.id)}
-          >
-            {category.name}
-          </button>
-        ))}
-      </form>
-    </>
+    <form className="flex flex-column gap-s pad-l fit-content categories">
+      <h2>Categorias</h2>
+      {categories.map((category) => (
+        <button
+          key={`button${category.id}`}
+          className={selectedCategory === category.id ? 'text-left' : 'transparent-btn black text-left'}
+          type="button"
+          id={category.id}
+          onClick={() => setCategoryId(category.id)}
+        >
+          {category.name}
+        </button>
+      ))}
+    </form>
   );
 }
 
