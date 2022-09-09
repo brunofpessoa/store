@@ -34,7 +34,8 @@ body {
 }
 
 button,
-input {
+input,
+select {
   padding: var(--pad-s);
   border-radius: var(--radius-s);
 }
@@ -45,6 +46,8 @@ button {
 
 button:hover {
   cursor: pointer;
+  transform: scale(1.05);
+  transition: 0.3s;
 }
 
 .flex {
@@ -121,6 +124,12 @@ button:hover {
   border-radius: var(--radius-m);
   background-color: #fff;
   padding: var(--pad-m);
+}
+
+.card:hover {
+  cursor: pointer;
+  transform: scale(1.05);
+  transition: 0.3s;
 }
 
 .card-title {
@@ -224,4 +233,20 @@ button:hover {
 
 .icon {
   width: 30px;
+}
+
+.grow {
+  flex-grow: 1;
+}
+
+@media (max-width: 900px) {
+  .categories {
+    display: none;
+  }
+}
+
+@media (min-width: 901px) {
+  .select-categories {
+    display: none;
+  }
 }

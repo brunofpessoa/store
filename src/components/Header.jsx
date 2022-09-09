@@ -5,6 +5,7 @@ import { GiShoppingCart } from 'react-icons/gi';
 import { FaStoreAlt } from 'react-icons/fa';
 
 import SearchBar from './SearchBar';
+import CategoriesSelect from './CategoriesSelect';
 import { cartContext } from '../context/CartProvider';
 
 function Header({ showSearchBar }) {
@@ -12,27 +13,37 @@ function Header({ showSearchBar }) {
   const navigate = useNavigate();
 
   return (
-    <header className="flex jc-sb pad-l theme">
-      <button type="button" className="transparent-btn" onClick={() => navigate('/')}>
-        <div className="flex ai-c gap-l theme">
-          <FaStoreAlt size={50} />
-          <h1>Bruno&apos;s Store</h1>
+    <header className="flex flex-column pad-l gap-m theme">
+      <div className="flex flex-wrap width-100">
+        <div className="flex grow">
+
+          <button type="button" className="transparent-btn" onClick={() => navigate('/')}>
+            <div className="flex ai-c gap-l theme">
+              <FaStoreAlt size={50} />
+              <h1>Bruno&apos;s Store</h1>
+            </div>
+          </button>
         </div>
-      </button>
-      <div className="flex ai-c">
-        { showSearchBar && <SearchBar />}
-      </div>
-      <div className="flex">
-        <button
-          className="transparent-btn"
-          type="button"
-          onClick={() => navigate('/cart')}
-        >
+        <div className="flex jc-sb grow">
           <div className="flex ai-c">
-            <GiShoppingCart size={40} />
-            {cart.length > 0 && <p>{cart.length}</p>}
+            { showSearchBar && <SearchBar />}
           </div>
-        </button>
+          <div className="flex">
+            <button
+              className="transparent-btn"
+              type="button"
+              onClick={() => navigate('/cart')}
+            >
+              <div className="flex ai-c">
+                <GiShoppingCart size={40} />
+                {cart.length > 0 && <p>{cart.length}</p>}
+              </div>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div className="select-categories">
+        <CategoriesSelect />
       </div>
     </header>
   );
