@@ -7,7 +7,7 @@ import Footer from '../components/Footer';
 
 function Home() {
   return (
-    <div>
+    <div className="flex flex-column page">
       <Header showSearchBar />
       <div className="flex">
         <Categories />

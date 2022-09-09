@@ -29,8 +29,13 @@ td {
   word-break: break-all;
 }
 
+html {
+  height: 100vh;
+}
+
 body {
   background-color: var(--bg);
+  min-height: 100%;
 }
 
 button,
@@ -229,7 +234,7 @@ button:hover {
 .footer {
   color: white;
   background-color: var(--theme);
-  bottom: 0;
+  margin-top: auto;
 }
 
 .icon {
@@ -246,6 +251,10 @@ button:hover {
 
 .text-left {
   text-align: left;
+}
+
+.page {
+  min-height: 100vh;
 }
 
 @media (max-width: 900px) {

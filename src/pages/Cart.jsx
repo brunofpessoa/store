@@ -61,7 +61,7 @@ function Cart() {
           <button
             className="theme bold"
             type="button"
-            onClick={() => {}}
+            onClick={() => { navigate('/checkout'); }}
           >
             Finalizar compra
           </button>
@@ -72,7 +72,7 @@ function Cart() {
   }
 
   return (
-    <div>
+    <div className="flex flex-column page">
       <Header />
       {cart.length > 0
         ? renderCartItems()

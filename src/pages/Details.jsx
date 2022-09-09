@@ -122,7 +122,7 @@ function Detail() {
   }
 
   return (
-    <div>
+    <div className="flex flex-column page">
       <Header />
       {id
         ? renderDetails()
