@@ -11,8 +11,15 @@ function Cart() {
 
   function renderEmptyCart() {
     return (
-      <div>
-        <p>Seu carrinho está vazio.</p>
+      <div className="flex flex-column gap-l ai-c pad-l width-100">
+        <p className="large bold">Seu carrinho está vazio.</p>
+        <button
+          className="fit-content"
+          type="button"
+          onClick={() => navigate('/')}
+        >
+          Continue comprando
+        </button>
       </div>
     );
   }

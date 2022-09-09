@@ -23,6 +23,7 @@ function ProductProvider({ children }) {
   const [selectedProduct, setSelectedProduct] = useState('');
   const [productDetail, setProductDetail] = useState({});
   const [description, setDescription] = useState('');
+  const [installments, setInstallments] = useState({ quantity: 'quantity', amount: 0 });
 
   async function getCategories() {
     setLoading(true);
@@ -70,10 +71,17 @@ function ProductProvider({ children }) {
     setDescription(data.plain_text);
   }
 
+  function getInstallments() {
+    const { installments: paymentData } = products
+      .find((product) => product.id === selectedProduct);
+    setInstallments(paymentData);
+  }
+
   useEffect(() => {
     if (selectedProduct !== '') {
       getProductDetail();
       getDescription();
+      getInstallments();
     }
   }, [selectedProduct]);
 
@@ -90,6 +98,7 @@ function ProductProvider({ children }) {
     setSelectedProduct,
     productDetail,
     description,
+    installments,
   }));
 
   return (

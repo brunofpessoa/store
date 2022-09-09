@@ -24,9 +24,9 @@
   text-decoration: none;
 }
 
-h2,
 td {
   padding: var(--pad-s);
+  word-break: break-all;
 }
 
 body {
@@ -134,7 +134,7 @@ button:hover {
 }
 
 .fit-content {
-  min-width: fit-content;
+  width: fit-content;
 }
 
 .carousel {

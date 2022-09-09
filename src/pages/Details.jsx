@@ -13,6 +13,10 @@ function Detail() {
     products,
     loading,
     description,
+    installments: {
+      quantity,
+      amount,
+    },
     productDetail: {
       id,
       price,
@@ -37,20 +41,6 @@ function Detail() {
     }
   }
 
-  function getQuantity() {
-    if (products.length > 0) {
-      return products.find((product) => product.id === id).installments.quantity;
-    }
-    return '';
-  }
-
-  function getAmount() {
-    if (products.length > 0) {
-      return products.find((product) => product.id === id).installments.amount;
-    }
-    return '';
-  }
-
   function renderDetails() {
     return (
       <div className="flex flex-column gap-l pad-l">
@@ -64,7 +54,7 @@ function Detail() {
           <div className="flex flex-column gap-m pad-m section detail-resume">
             <h2>{title}</h2>
             <p className="bold large">{`R$ ${parseFloat(price).toFixed(2)}`}</p>
-            <p className="large green">{`${getQuantity()} x R$ ${getAmount().toFixed(2)}`}</p>
+            <p className="large green">{`${quantity} x R$ ${amount.toFixed(2)}`}</p>
             {shipping.free_shipping && <p className="green">Frete Grátis</p>}
             <div className="flex flex-column gap-m ai-c">
               <button
@@ -99,17 +89,15 @@ function Detail() {
 
         <div className="flex flex-column gap-l pad-l detail-main">
 
+          <h2>
+            Descrição do produto
+          </h2>
+          <p>{description}</p>
+          <h2>
+            Especificações técnicas
+          </h2>
           <div>
-            <h2>
-              Descrição do produto
-            </h2>
-            <p>{description}</p>
-          </div>
-          <div>
-            <h2>
-              Especificações técnicas
-            </h2>
-            <table className="table">
+            <table className="width-100">
               <thead>
                 <tr>
                   <th>Atributo</th>
