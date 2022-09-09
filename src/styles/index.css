@@ -6,8 +6,8 @@
   --pad-m: 0.8rem;
   --pad-l: 1.1rem;
   --bg: rgb(245 245 245);
-  --radius-s: 10px;
-  --radius-m: 20px;
+  --radius-s: 0.5rem;
+  --radius-m: 1rem;
   --theme: #9b4dee;
   --theme-txt: #fff;
   --primary: #f6ea49;
