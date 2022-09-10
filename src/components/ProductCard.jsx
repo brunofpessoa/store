@@ -19,7 +19,7 @@ function ProductCard({ product }) {
   }
 
   return (
-    <div className="flex flex-column gap-m card jc-sb ai-c">
+    <div className="flex flex-column gap-m card jc-sb ai-c hover">
       <div
         role="button"
         tabIndex={0}

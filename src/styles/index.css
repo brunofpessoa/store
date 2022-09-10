@@ -52,6 +52,11 @@ select {
   background-color: #fff;
 }
 
+label,
+input {
+  max-width: 35vw;
+}
+
 button {
   background-color: var(--primary);
 }
@@ -131,14 +136,14 @@ button:hover {
 }
 
 .card {
-  width: 250px;
+  width: 300px;
   box-shadow: 0 10px 15px -3px rgb(0 0 0 / 10%);
   border-radius: var(--radius-m);
   background-color: #fff;
   padding: var(--pad-m);
 }
 
-.card:hover {
+.hover:hover {
   cursor: pointer;
   transform: scale(1.05);
   transition: 0.3s;

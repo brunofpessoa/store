@@ -13,9 +13,10 @@ function Products() {
 
       {!loading && (
       <div className="flex flex-wrap gap-l jc-c">
-        {products.map((product) => (
+        {products.length > 1 && products.map((product) => (
           <ProductCard key={product.id} product={product} />
         ))}
+        {products.length < 1 && <h2>Nenhum produto encontrado</h2>}
       </div>
       )}
     </div>
