@@ -12,7 +12,7 @@ function Footer() {
           Acesse o repositório
         </div>
       </a>
-      <p>© 2022, Bruno Pessoa. Todos os direitos reservados</p>
+      <p>2022, Desenvolvido por Bruno Pessoa</p>
     </div>
   );
 }
