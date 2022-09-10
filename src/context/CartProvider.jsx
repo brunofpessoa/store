@@ -66,6 +66,7 @@ function CartProvider({ children }) {
     removeProductFromCart,
     increaseItemQuantity,
     decreaseItemQuantity,
+    setCart,
   }));
 
   return (

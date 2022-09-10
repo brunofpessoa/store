@@ -7,7 +7,7 @@ import Header from '../components/Header';
 import { cartContext } from '../context/CartProvider';
 
 function Cart() {
-  const { cart } = useContext(cartContext);
+  const { cart, setCart } = useContext(cartContext);
   const navigate = useNavigate();
 
   function renderEmptyCart() {
@@ -23,6 +23,11 @@ function Cart() {
         </button>
       </div>
     );
+  }
+
+  function performCheckout() {
+    setCart([]);
+    navigate('/checkout');
   }
 
   function renderCartItems() {
@@ -61,7 +66,7 @@ function Cart() {
           <button
             className="theme bold"
             type="button"
-            onClick={() => { navigate('/checkout'); }}
+            onClick={performCheckout}
           >
             Finalizar compra
           </button>
