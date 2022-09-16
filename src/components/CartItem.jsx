@@ -17,7 +17,7 @@ function CartItem({ product }) {
       <div>
         <img
           className="card-image"
-          src={product.thumbnail.replace('I.jpg', 'J.jpg')}
+          src={product.thumbnail.replace('http://', 'https://').replace('I.jpg', 'J.jpg')}
           alt={product.title}
         />
         <div className="flex flex-column gap-m jc-c">
