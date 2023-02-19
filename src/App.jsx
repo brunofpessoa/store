@@ -1,5 +1,5 @@
 import React from 'react';
-import { HashRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Cart from './pages/Cart';
 import Home from './pages/Home';
 import ProductProvider from './context/ProductProvider';
@@ -11,14 +11,14 @@ function App() {
   return (
     <ProductProvider>
       <CartProvider>
-        <Router>
+        <BrowserRouter>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/cart" element={<Cart />} />
             <Route path="/detail/:productId" element={<Detail />} />
             <Route path="/checkout" element={<Checkout />} />
           </Routes>
-        </Router>
+        </BrowserRouter>
       </CartProvider>
     </ProductProvider>
   );
