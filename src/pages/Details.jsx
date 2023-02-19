@@ -124,7 +124,7 @@ function Detail() {
   return (
     <div className="flex flex-column page">
       <Header />
-      {!loading
+      {(!loading && id)
         ? renderDetails()
         : (
           <div className="flex width-100 jc-c pad-l">
