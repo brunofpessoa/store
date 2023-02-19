@@ -26,10 +26,8 @@ function ProductProvider({ children }) {
   const [installments, setInstallments] = useState({ quantity: 'quantity', amount: 0 });
 
   async function getCategories() {
-    setLoading(true);
     const data = await requestCategories();
     setCategories(data);
-    setLoading(false);
   }
 
   useEffect(() => {
@@ -45,8 +43,8 @@ function ProductProvider({ children }) {
     setLoading(true);
     const data = await requestProducts(selectedCategory, query);
     setProducts(data);
-    setLoading(false);
     setPerformSearch(false);
+    setLoading(false);
   }
 
   useEffect(() => {
