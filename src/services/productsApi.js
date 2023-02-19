@@ -5,7 +5,7 @@ async function requestProducts(categoryId = '', query = '') {
     const data = await response.json();
     return data.results;
   } catch (error) {
-    console.log(error.message);
+    console.error(error.message);
     return [];
   }
 }
