@@ -6,6 +6,7 @@ import ProductCard from './ProductCard';
 
 function Products() {
   const { products, loading } = useContext(productContext);
+  console.log(loading, products);
 
   return (
     <div className="flex width-100 jc-c pad-l">

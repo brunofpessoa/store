@@ -124,9 +124,13 @@ function Detail() {
   return (
     <div className="flex flex-column page">
       <Header />
-      {id
+      {!loading
         ? renderDetails()
-        : <ClipLoader loading={loading} color="red" size={30} />}
+        : (
+          <div className="flex width-100 jc-c pad-l">
+            <ClipLoader loading={loading} color="red" size={30} />
+          </div>
+        )}
       <Footer />
     </div>
   );
